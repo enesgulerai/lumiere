@@ -92,14 +92,14 @@ docker run -d --rm -p 8000:80 \
   -v "$(pwd)/data:/app/data" \
   recsys-api:latest
 ```
-👉 Access API Docs: http://localhost:8000/docs
+Access API Docs: http://localhost:8000/docs
 
 ### Option C: User Dashboard (Frontend)
 To launch the interactive frontend (ensure API is running first):
 ```
 streamlit run dashboard/app.py
 ```
-👉 Access Dashboard: http://localhost:8501
+Access Dashboard: http://localhost:8501
 
 ## 🧪 Testing
 The project includes a robust test suite to ensure data integrity and API availability.
