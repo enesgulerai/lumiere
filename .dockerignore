@@ -5,8 +5,10 @@
 # Docker
 .dockerignore
 Dockerfile
+docker-compose.yml
 
 # Python Build & Cache
+.venv/
 *.egg-info/
 __pycache__/
 build/
@@ -20,7 +22,14 @@ dist/
 *.DS_Store
 
 # Data, Models, Logs, and Reports
-data/
-models/
 mlruns/
 reports/
+
+# --- SMART EXCLUSIONS FOR ML ARTIFACTS ---
+data/*
+models/*
+
+!data/processed/
+!data/raw/ratings.dat
+!models/recsys_model.onnx
+!models/*.json
