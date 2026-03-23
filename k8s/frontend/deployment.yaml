@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lumiere-frontend
+  namespace: default
+  labels:
+    app: lumiere-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lumiere-frontend
+  template:
+    metadata:
+      labels:
+        app: lumiere-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: lumiere-frontend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8501
+          env:
+            - name: BACKEND_URL
+              value: "http://lumiere-backend:8000"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "250m"
+              memory: "512Mi"
+              
