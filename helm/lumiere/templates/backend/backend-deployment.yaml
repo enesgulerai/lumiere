@@ -1,28 +1,13 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: {{ .Chart.Name }}-backend
-  namespace: {{ .Values.global.namespace }}
-  labels:
-    app: {{ .Chart.Name }}-backend
+  name: "{{ .Chart.Name }}-backend"
+  namespace: "{{ .Values.global.namespace }}"
 spec:
-  replicas: {{ .Values.backend.replicaCount }}
+  type: {{ .Values.backend.service.type }}
   selector:
-    matchLabels:
-      app: {{ .Chart.Name }}-backend
-  template:
-    metadata:
-      labels:
-        app: {{ .Chart.Name }}-backend
-    spec:
-      containers:
-        - name: backend
-          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
-          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
-          ports:
-            - containerPort: 8000
-          env:
-            - name: REDIS_URL
-              value: {{ .Values.backend.redisUrl | quote }}
-          resources:
-            {{- toYaml .Values.backend.resources | nindent 12 }}
+    app: "{{ .Chart.Name }}-backend"
+  ports:
+    - protocol: TCP
+      port: {{ .Values.backend.service.port }}
+      targetPort: {{ .Values.backend.service.port }}
