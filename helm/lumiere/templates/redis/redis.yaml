@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: lumiere-redis
-  namespace: {{ .Values.global.namespace }}
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: redis
-          image: redis:7-alpine
-          imagePullPolicy: IfNotPresent
+          image: "{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag }}"
+          imagePullPolicy: {{ .Values.redis.image.pullPolicy }}
           ports:
             - containerPort: 6379
 ---
@@ -24,7 +24,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: lumiere-redis
-  namespace: {{ .Values.global.namespace }}
+  namespace: default
 spec:
   ports:
     - port: 6379

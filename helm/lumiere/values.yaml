@@ -2,6 +2,13 @@
 global:
   namespace: default
 
+# Redis Configuration
+redis:
+  image:
+    repository: redis
+    tag: 7-alpine
+    pullPolicy: IfNotPresent
+
 # Backend Service Configuration
 backend:
   replicaCount: 2
