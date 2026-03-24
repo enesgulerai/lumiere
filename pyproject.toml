@@ -36,5 +36,6 @@ dev = [
     "httpx>=0.28.1",
     "ipykernel>=7.2.0",
     "jupyterlab>=4.5.6",
+    "pre-commit>=4.5.1",
     "pytest>=9.0.2",
 ]

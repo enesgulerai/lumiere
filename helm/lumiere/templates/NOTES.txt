@@ -1,0 +1,15 @@
+========================================================
+Welcome to Lumiere - The MLOps Recommendation System!
+========================================================
+
+Your backend and frontend services have been successfully deployed.
+
+1. Get the application URL by running these commands:
+   export NODE_PORT=$(kubectl get --namespace {{ .Values.global.namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ .Chart.Name }}-frontend)
+   export NODE_IP=$(kubectl get nodes --namespace {{ .Values.global.namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+   echo http://$NODE_IP:$NODE_PORT
+
+2. Alternatively, if you are using Docker Desktop or Minikube, simply go to:
+   http://localhost:{{ .Values.frontend.service.port }}
+
+Happy Recommending!

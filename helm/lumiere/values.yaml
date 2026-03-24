@@ -1,0 +1,41 @@
+# Global Configuration
+global:
+  namespace: default
+
+# Backend Service Configuration
+backend:
+  replicaCount: 2
+  image:
+    repository: lumiere-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 8000
+  resources:
+    requests:
+      cpu: "250m"
+      memory: "512Mi"
+    limits:
+      cpu: "500m"
+      memory: "1Gi"
+  redisUrl: "redis://lumiere-redis:6379/0"
+
+# Frontend Service Configuration
+frontend:
+  replicaCount: 1
+  image:
+    repository: lumiere-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: LoadBalancer
+    port: 8501
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "256Mi"
+    limits:
+      cpu: "250m"
+      memory: "512Mi"
+  backendUrl: "http://lumiere-app-backend:8000"
