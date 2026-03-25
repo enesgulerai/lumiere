@@ -6,6 +6,12 @@ readme = "README.md"
 authors = [
     { name = "Enes Guler", email = "hello.enesguler@gmail.com" }
 ]
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: marks tests as slow (e.g., integration/E2E tests that require build/run)"
+]
+
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.135.1",
