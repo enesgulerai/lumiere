@@ -45,4 +45,4 @@ frontend:
     limits:
       cpu: "250m"
       memory: "512Mi"
-  backendUrl: "http://lumiere-app-backend:8000"
+  backendUrl: "http://lumiere-backend:8000"
