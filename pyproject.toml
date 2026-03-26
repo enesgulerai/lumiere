@@ -1,7 +1,7 @@
 [project]
 name = "lumiere"
 version = "0.1.0"
-description = "Add your description here"
+description = "A production-ready movie recommendation system built with FastAPI, ONNX, and deployed via Kubernetes and GitOps."
 readme = "README.md"
 authors = [
     { name = "Enes Guler", email = "hello.enesguler@gmail.com" }
