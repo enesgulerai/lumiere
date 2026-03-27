@@ -6,7 +6,7 @@ global:
 redis:
   image:
     repository: redis
-    tag: 30c35fdb121c4b4270d3178cfcdb19df3403acc5
+    tag: 28d6c0c63d1d0879c3e187384f852d4830a37541
     pullPolicy: IfNotPresent
 
 # Backend Service Configuration
@@ -14,7 +14,7 @@ backend:
   replicaCount: 2
   image:
     repository: lumiere-backend
-    tag: 30c35fdb121c4b4270d3178cfcdb19df3403acc5
+    tag: 28d6c0c63d1d0879c3e187384f852d4830a37541
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
@@ -33,7 +33,7 @@ frontend:
   replicaCount: 1
   image:
     repository: lumiere-frontend
-    tag: 30c35fdb121c4b4270d3178cfcdb19df3403acc5
+    tag: 28d6c0c63d1d0879c3e187384f852d4830a37541
     pullPolicy: IfNotPresent
   service:
     type: LoadBalancer
