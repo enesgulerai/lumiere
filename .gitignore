@@ -1,8 +1,16 @@
 # ----------------------------------------------------------------------
 # Data, Models, Logs & Jupyter
 # ----------------------------------------------------------------------
-/data/
-/models/
+/data/*
+!/data/processed/
+!/data/raw/
+/data/raw/*
+!/data/raw/ratings.dat
+
+/models/*
+!/models/recsys_model.onnx
+!/models/*.json
+
 /mlruns/
 /reports/
 logs/
